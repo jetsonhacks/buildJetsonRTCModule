@@ -31,5 +31,5 @@ make M=drivers/rtc/
 # After compilation, copy the compiled module to the system area
 cp drivers/rtc/rtc-ds1307.ko /lib/modules/$(uname -r)/kernel
 depmod -a
-/bin/echo -e "\e[1;32mFTDI Driver Module Installed.\e[0m"
+/bin/echo -e "\e[1;32mReal Time Clock (DS1307, DS3231) Driver Module Installed.\e[0m"
 
