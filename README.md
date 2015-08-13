@@ -8,9 +8,9 @@ $ sudo apt-get install libi2c-dev i2c-tools
 The Dallas DS3231 appears as 0x68 on i2c bus 1 on the Jetson TK1 with this wiring:
 
 <blockquote><p>GND J3A1-14 ->  DS3231 (-)<br>
-VCC J3A1-16 ->  DS3232 (VCC - 3.3V) <br>
-SCL J3A1-18 ->  DS3232 (SCL)<br>
-SDA J3A1-20 ->  DS3232 (SDA)</p></blockquote>
+VCC J3A1-16 ->  DS3231 (VCC - 3.3V) <br>
+SCL J3A1-18 ->  DS3231 (SCL)<br>
+SDA J3A1-20 ->  DS3231 (SDA)</p></blockquote>
 
 Note: VCC,SCL and SDA voltages are dependent on the RTC clock wiring. Most Raspberry Pi or Arduino addon boards that have been level-shifted to 3.3V should work for the SCL and SDA lines. Note also that VCC on most of these boards will work with 3.3V or 5V.
 
