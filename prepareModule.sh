@@ -13,8 +13,8 @@ tar -xvf kernel_src.tbz2
 cd kernel
 # Get the kernel configuration file
 zcat /proc/config.gz > .config
-# Enable DS3232 compilation
-sudo sed -i 's/# CONFIG_RTC_DRV_DS3232 is not set/CONFIG_RTC_DRV_DS3232=m/' .config
+# Enable DS3232 compilation; it should be the same as a DS1307
+sudo sed -i 's/# CONFIG_RTC_DRV_DS1307 is not set/CONFIG_RTC_DRV_DS1307=m/' .config
 # Make sure that the local kernel version is set
 LOCALVERSION=$(uname -r)
 # vodoo incantation; This removes everything from the beginning to the last occurrence of "-"
@@ -29,7 +29,7 @@ make modules_prepare
 # Compile the module
 make M=drivers/rtc/
 # After compilation, copy the compiled module to the system area
-cp drivers/rtc/rtc-ds3232.ko /lib/modules/$(uname -r)/kernel
+cp drivers/rtc/rtc-ds1307.ko /lib/modules/$(uname -r)/kernel
 depmod -a
 /bin/echo -e "\e[1;32mFTDI Driver Module Installed.\e[0m"
 
