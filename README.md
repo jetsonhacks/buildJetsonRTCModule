@@ -20,7 +20,21 @@ to build and install the RTC module. If you have the i2c tools installed, you ca
 <blockquote>$ sudo i2cdetect -y -r 1</blockquote>
 The address of the Dallas 3231 will show up as 0x68.
 
-For more next steps in the installation, please see: https://devtalk.nvidia.com/default/topic/769727/embedded-systems/-howto-battery-backup-rtc/
+Then attach the RTC device:
+<blockquote>$ echo ds3231 0x68 | sudo tee /sys/class/i2c-dev/i2c-1/device/new_device</blockquote>
+You can set the clock on the RTC using:
+<blockquote>sudo hwclock -w -f /dev/rtc1</blockquote>
+You can read the the time stored on the RTC:
+<blockquote>sudo hwclock -r -f /dev/rtc1</blockquote>
+In order for the RTC to be loaded during startup, add the following two lines /etc/rc.local
+(You can modify /etc/rc.local using '$ sudo gedit /etc/rc.local'_.
+<blockquote>$ echo ds3231 0x68 | sudo tee /sys/class/i2c-dev/i2c-1/device/new_device
+$ sudo hwclock -s -f /dev/rtc1</blockquote>
+This tells the Jetson to attach the RTC, then set the system time from the RTC. The '-f /dev/rtc1' tells the Jetson that the DS3231 is attached to rtc1. 
+
+There is an onboard RTC on the Jetson which is backed up using a small capacitor, an AS3722 which is /dev/rtc0. 
+
+For more more information on the installation, please see: https://devtalk.nvidia.com/default/topic/769727/embedded-systems/-howto-battery-backup-rtc/
 
 
 
