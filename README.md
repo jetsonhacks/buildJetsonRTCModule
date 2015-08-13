@@ -28,8 +28,7 @@ You can read the the time stored on the RTC:
 <blockquote>sudo hwclock -r -f /dev/rtc1</blockquote>
 In order for the RTC to be loaded during startup, add the following two lines /etc/rc.local
 (You can modify /etc/rc.local using '$ sudo gedit /etc/rc.local'_.
-<blockquote>$ echo ds3231 0x68 | sudo tee /sys/class/i2c-dev/i2c-1/device/new_device
-
+<blockquote>$ echo ds3231 0x68 | sudo tee /sys/class/i2c-dev/i2c-1/device/new_device<br>
 $ sudo hwclock -s -f /dev/rtc1</blockquote>
 This tells the Jetson to attach the RTC, then set the system time from the RTC. The '-f /dev/rtc1' tells the Jetson that the DS3231 is attached to rtc1. 
 
