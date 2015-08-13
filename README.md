@@ -8,7 +8,7 @@ $ sudo apt-get install libi2c-dev i2c-tools
 The Dallas DS3231 appears as 0x68 on i2c bus 1 on the Jetson TK1 with this wiring:
 
 <blockquote><p>GND J3A1-14 ->  DS3231 (-)<br>
-VCC J3A1-16 ->  DS3232 (VCC)    3.3V (red wire)<br>
+VCC J3A1-16 ->  DS3232 (VCC - 3.3V) <br>
 SCL J3A1-18 ->  DS3232 (SCL)<br>
 SDA J3A1-20 ->  DS3232 (SDA)</p></blockquote>
 
