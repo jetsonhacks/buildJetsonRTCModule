@@ -7,7 +7,7 @@ if [ $(id -u) != 0 ]; then
 fi
 # Get the kernel source for LT4 21.4
 cd /usr/src/
-wget http://developer.download.nvidia.com/embedded/L4T/r21_Release_v4.0/source/kernel_src.tbz2
+wget http://developer.download.nvidia.com/embedded/L4T/r21_Release_v5.0/source/kernel_src.tbz2
 # Decompress
 tar -xvf kernel_src.tbz2
 cd kernel
